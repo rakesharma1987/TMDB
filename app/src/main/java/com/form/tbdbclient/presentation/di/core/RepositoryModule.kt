@@ -12,6 +12,9 @@ import com.form.tbdbclient.data.repository.movie.dataSource.MovieRemoteDataSourc
 import com.form.tbdbclient.data.repository.tvShow.dataSource.TvShowCacheDataSource
 import com.form.tbdbclient.data.repository.tvShow.dataSource.TvShowLocalDataSource
 import com.form.tbdbclient.data.repository.tvShow.dataSource.TvShowRemoteDataSource
+import com.form.tbdbclient.domain.repository.ArtistRepository
+import com.form.tbdbclient.domain.repository.MovieRepository
+import com.form.tbdbclient.domain.repository.TvShowRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -23,7 +26,7 @@ class RepositoryModule {
     fun provideMovieRepository(movieRemoteDataSource : MovieRemoteDataSource,
                                 movieLocalDataSource: MovieLocalDataSource,
                                movieCacheDataSource: MovieCacheDataSource
-                               ) : MoviRepositoryImpl{
+                               ) : MovieRepository{
         return MoviRepositoryImpl(movieRemoteDataSource, movieLocalDataSource, movieCacheDataSource)
     }
 
@@ -32,7 +35,7 @@ class RepositoryModule {
     fun provideTvShowRepository(tvShowRemoteDataSource: TvShowRemoteDataSource,
                                 tvShowLocalDataSource: TvShowLocalDataSource,
                                 tvShowCacheDataSource: TvShowCacheDataSource
-                                ) : TvShowsRepositoryImpl{
+                                ) : TvShowRepository{
         return TvShowsRepositoryImpl(tvShowRemoteDataSource, tvShowLocalDataSource, tvShowCacheDataSource)
     }
 
@@ -41,7 +44,7 @@ class RepositoryModule {
     fun provideArtistRepositiry(artistRemoteDataSource: ArtistRemoteDataSource,
                                 artistLocalDataSource: ArtistLocalDataSource,
                                 artistCacheDataSource: ArtistCacheDataSource
-                                ) : ArtistRepositoryImpl{
+                                ) : ArtistRepository{
         return ArtistRepositoryImpl(artistRemoteDataSource, artistLocalDataSource, artistCacheDataSource)
     }
 }
