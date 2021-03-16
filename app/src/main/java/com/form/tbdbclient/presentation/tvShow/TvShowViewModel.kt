@@ -7,16 +7,14 @@ import com.form.tbdbclient.data.model.TvShow.TvShow
 import com.form.tbdbclient.domain.useCase.GetTvShowUseCase
 import com.form.tbdbclient.domain.useCase.UpdateTvShowUseCase
 
-class TvShowViewModel(
-    private val getTvShowUseCase: GetTvShowUseCase,
-    private val updateTvShowUseCase: UpdateTvShowUseCase) : ViewModel(){
+class TvShowViewModel(private val getTvShowUseCase: GetTvShowUseCase, private val updateTvShowUseCase: UpdateTvShowUseCase) : ViewModel(){
 
-    private fun getTvShow() : LiveData<List<TvShow>?> = liveData {
+    fun getTvShow() : LiveData<List<TvShow>?> = liveData {
         val tvShowList : List<TvShow>? = getTvShowUseCase.execute()
         emit(tvShowList)
     }
 
-    private fun updateTvShow() : LiveData<List<TvShow>?> = liveData {
+    fun updateTvShow() : LiveData<List<TvShow>?> = liveData {
         val tvShowList : List<TvShow>? = updateTvShowUseCase.execute()
         emit(tvShowList)
     }

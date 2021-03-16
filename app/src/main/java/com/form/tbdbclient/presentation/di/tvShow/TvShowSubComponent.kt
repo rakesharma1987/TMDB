@@ -5,7 +5,7 @@ import com.form.tbdbclient.presentation.tvShow.TvShowActivity
 import dagger.Subcomponent
 
 @TvShowScope
-@Subcomponent(modules = [MovieModule::class])
+@Subcomponent(modules = [TvShowModule::class])
 interface TvShowSubComponent {
     fun inject(tvShowActivity: TvShowActivity)
 

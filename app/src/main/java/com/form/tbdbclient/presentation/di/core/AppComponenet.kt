@@ -8,8 +8,7 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AppModule::class, NetModule::class, RepositoryModule::class, DatabaseModule::class, UseCaseModule::class,
-    RemoteDataModule::class, LocalDataModule::class, CacheDataModule::class])
+@Component(modules = [AppModule::class, NetModule::class, RepositoryModule::class, DatabaseModule::class, UseCaseModule::class, RemoteDataModule::class, LocalDataModule::class, CacheDataModule::class])
 interface AppComponenet {
     fun movieSubComponent() : MovieSubComponenet.Factory
     fun tvShowSubComponent() : TvShowSubComponent.Factory
